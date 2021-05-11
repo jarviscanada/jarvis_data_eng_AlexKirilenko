@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# arguments
+command_name=$1
+username=$2
+password=$3
+docker container inspect jrvs-psql >/dev/null 2>&1
+container_exists=$?
+
 # prints usage
 usage() {
   echo -e "Usage: ${0} start|stop|create [db_username][db_password]"
@@ -12,19 +19,19 @@ error_exit() {
 }
 # creates container if it is not created yet
 create_function() {
+  # function inputs
+  db_username=$1
+  db_password=$2
   # check if container already exists
-  if docker container inspect jrvs-psql >/dev/null 2>&1; then
+  if [ $container_exists -eq 0 ]; then
     error_exit "Container is already created"
   fi
-
   # check if name and passowrd are given as positional arguments
-  if [ -z $1 ] || [ -z $2 ]; then
+  if [ -z "$db_username" ] || [ -z "$db_password" ]; then
     error_exit "Name or password are not provided"
   fi
   # creates docker volume for database only if it doesn't exist
   docker volume inspect pgdata >/dev/null 2>&1 || docker volume create pgdata >/dev/null 2>&1
-  db_username=$1
-  db_password=$2
   # creating a container named jrvs-psql
   docker run --name jrvs-psql \
     -e POSTGRES_PASSWORD=${db_password} -e POSTGRES_USER=${db_username} \
@@ -42,7 +49,7 @@ create_function() {
 
 start_function() {
   # if container doesn't exist, return with error message
-  if ! docker container inspect jrvs-psql >/dev/null 2>&1; then
+  if [ $container_exists -ne 0 ]; then
     error_exit "Container doesn't exist"
   fi
   docker start jrvs-psql
@@ -51,7 +58,7 @@ start_function() {
 
 stop_function() {
   # if container doesn't exist, return with error message
-  if ! docker container inspect jrvs-psql >/dev/null 2>&1; then
+  if [ $container_exists -ne 0 ]; then
     error_exit "Container doesn't exist"
   fi
   docker stop jrvs-psql
@@ -60,7 +67,7 @@ stop_function() {
 
 # program logic
 # checks and starts docker service if it is not running
-systemctl status docker > /dev/null 2>&1 || systemctl start docker > /dev/null 2>&1
+sudo systemctl status docker > /dev/null 2>&1 || sudo systemctl start docker > /dev/null 2>&1
 # checks inputs
 case "$1" in
   create )
