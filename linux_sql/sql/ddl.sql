@@ -10,13 +10,13 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info
     cpu_mhz          REAL,
     L2_cache         INTEGER,
     total_mem        INTEGER,
-    "timestamp"      TIMESTAMP
+    timestamp      TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS PUBLIC.host_usage
-(
+
     id SERIAL PRIMARY KEY,
-    "timestamp" TIMESTAMP NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
     host_id INTEGER NOT NULL,
     memory_free INTEGER,
     cpu_idle INTEGER,
