@@ -108,6 +108,8 @@ Column Name | Data Type
  cpu_kernel | INTEGER
  disk_io | INTEGER
  disk_available | INTEGER
+ 
+ 
 Additionally, a foreign key constraint is added to the `host_usage.host_id` column
 with a reference to the `host_info.id`.
 
