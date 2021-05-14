@@ -1,7 +1,7 @@
 # Linux Cluster Monitoring Agent
 ## Introduction
 
-*Linux Cluster Monitoring Agent* is a set of tools that allow 
+*Linux Cluster Monitoring Agent* is a set of tools that allows 
 to automate the collection and persistence of hosts data in a Linux cluster.
 In particular, the hardware specifications and real-time usage data 
 of hosts are collected and stored.
@@ -75,9 +75,9 @@ and management of the database and tables through `psql_docker.sh` and `ddl.sql`
   > This script creates a `host_agent` database and creates the structure of tables. 
   > It is executed through the `psql` command. 
 - `queries.sql` 
-  > This script populate the created tables with test data.
+  > This script populates the created tables with test data.
   > Additionally, it demonstrates examples of business questions that can be answered with the collected data:
-  > * Ordering existing servers by the number of CPUs and memeory amount;
+  > * Ordering existing servers by the number of CPUs and memory amount;
   > * Displaying average memory use over time intervals of varying length for every machine.
   > * Identifying potential machine failures at times the server did not insert the data.
   
