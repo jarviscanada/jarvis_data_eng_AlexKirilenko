@@ -1,7 +1,12 @@
 package ca.jrvs.apps.grep;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,6 +15,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.apache.log4j.BasicConfigurator;
 
 public class JavaGrepLambdaImp extends JavaGrepImp{
@@ -70,6 +76,21 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
           String.format("File %s cannot be read", inputFile.getPath()), e);
     }
     return lines;
+  }
+
+  public Stream<String> readLinesStream(File inputFile) throws IllegalArgumentException {
+    try (
+        // opening a byte stream to the file
+        InputStream inputStream = new FileInputStream(inputFile);
+        // wrapping a byte stream to character stream and to the buffered stream
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+    ) {
+      // return a reference to the stream
+      return bufferedReader.lines();
+    } catch (IOException e) {
+      throw new IllegalArgumentException(
+          String.format("File %s cannot be read", inputFile.getPath()), e);
+    }
   }
 
   @Override
