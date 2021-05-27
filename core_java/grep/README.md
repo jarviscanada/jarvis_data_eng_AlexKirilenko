@@ -1,5 +1,5 @@
 # Introduction
-The *Java Grep* is tool that allows to recursively search for a given text pattern 
+The *Java Grep* is a tool that allows to recursively search for a given text pattern 
 in all files under a specified path, similar to the `grep` utility. 
 The project is written in Java 8 and utilizes such language features 
 as Collections, Lambdas and Streams for efficient data processing.
@@ -42,7 +42,8 @@ There are two ways to run the application:
    of the container. 
    The input is read from `container_inputPath` directory/file and the output is written to the `container_outPath` file.
 
-#Implemenation
+
+# Implemenation
 On the high level, the application iterates through every readable 
 file under the specified input path, reads the lines of each file, 
 filters out those lines that do not match the regex and writes the remaining lines 
