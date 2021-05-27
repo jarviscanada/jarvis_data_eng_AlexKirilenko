@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.log4j.BasicConfigurator;
@@ -32,7 +33,8 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
     javaGrepLambdaImp.setOutFile(args[2]);
 
     try {
-      javaGrepLambdaImp.process();
+//      javaGrepLambdaImp.process();
+      javaGrepLambdaImp.processStream();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -53,6 +55,41 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
 
     // writing is done in batch not to invoke the method in the stream for each line
     writeToFile(processedLines);
+  }
+
+  /**
+   * process files with Stream reading of lines
+   * memory efficient
+   * @throws IOException
+   */
+  public void processStream() throws IOException {
+    // FileInputStream has to be opened in the same context (for consice implementation)
+    List<InputStream> inputStreams = new LinkedList<>();
+    try {
+      // list of files
+      List<File> files = listFiles(getRootPath());
+      // creating an input stream from each file
+      for (File file : files) {
+        inputStreams.add(new FileInputStream(file));
+      }
+      // processing inputStreams (of each file)
+      List<String> processedLines = inputStreams
+          .stream()
+          .map(InputStreamReader::new)
+          .map(BufferedReader::new)
+          .flatMap(BufferedReader::lines)
+          .filter(this::containsPattern)
+          .collect(Collectors.toList());
+      // writing is done in batch not to invoke the method in the stream for each line
+      writeToFile(processedLines);
+    } catch (IOException e) {
+      throw new IOException("Couldn't process lines", e);
+    } finally {
+      // closing input streams
+      for (InputStream inputStream : inputStreams) {
+        inputStream.close();
+      }
+    }
   }
 
   @Override
@@ -78,20 +115,6 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
     return lines;
   }
 
-  public Stream<String> readLinesStream(File inputFile) throws IllegalArgumentException {
-    try (
-        // opening a byte stream to the file
-        InputStream inputStream = new FileInputStream(inputFile);
-        // wrapping a byte stream to character stream and to the buffered stream
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-    ) {
-      // return a reference to the stream
-      return bufferedReader.lines();
-    } catch (IOException e) {
-      throw new IllegalArgumentException(
-          String.format("File %s cannot be read", inputFile.getPath()), e);
-    }
-  }
 
   @Override
   public boolean containsPattern(String line) {
@@ -102,5 +125,6 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
   public void writeToFile(List<String> lines) throws IOException {
     PrintWriter printWriter = new PrintWriter(Paths.get(getOutFile()).toFile());
     lines.stream().forEach(printWriter::println);
+    printWriter.close();
   }
 }
