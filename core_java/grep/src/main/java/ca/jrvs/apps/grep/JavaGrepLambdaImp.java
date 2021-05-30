@@ -63,12 +63,13 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
    * @throws IOException
    */
   public void processStream() throws IOException {
-    // FileInputStream has to be opened in the same context (for consice implementation)
+    // FileInputStream has to be opened in the same context (for concise implementation)
     List<InputStream> inputStreams = new LinkedList<>();
     try {
       // list of files
       List<File> files = listFiles(getRootPath());
-      // creating an input stream from each file
+      // creatisrc/main/java/ca/jrvs/apps/grep/JavaGrepLambdaImp.java
+ng an input stream from each file
       for (File file : files) {
         inputStreams.add(new FileInputStream(file));
       }
@@ -90,6 +91,22 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
         inputStream.close();
       }
     }
+
+//    try {
+//      List<String> processedLines =
+//        listFiles(getRootPath())
+//            .stream()
+//            .map(FileInputStream::new)
+//            .map(InputStreamReader::new)
+//            .map(BufferedReader::new)
+//            .flatMap(BufferedReader::lines)
+//            .filter(this::containsPattern)
+//            .collect(Collectors.toList());
+//      writeToFile(processedLines);
+//    } catch (IOException e) {
+//      throw new IOException("Couldn't process lines", e);
+//    }
+
   }
 
   @Override

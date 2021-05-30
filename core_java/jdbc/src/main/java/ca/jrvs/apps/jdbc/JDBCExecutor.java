@@ -14,20 +14,11 @@ public class JDBCExecutor {
     try {
       Connection connection = dcm.getConnection();
 
-      CustomerDAO customerDAO = new CustomerDAO(connection);
+      OrderDAO orderDAO = new OrderDAO(connection);
 
+      Order order = orderDAO.findById(1003);
 
-//      Customer customer = customerDAO.findById(10001);
-//      System.out.println(customer);
-//      customer.setEmail("gwash@wh.gov");
-//      customerDAO.update(customer);
-//      System.out.println(customerDAO.findById(10001));
-
-//      List<Customer> customers = customerDAO.findAll();
-//      System.out.println(customers.size());
-//      for (Customer customer : customers) {
-//        System.out.println(customer);
-//      }
+      System.out.println(order);
 
 
     } catch (SQLException e) {

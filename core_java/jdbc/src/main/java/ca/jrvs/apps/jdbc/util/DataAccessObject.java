@@ -1,4 +1,4 @@
-package ca.jrvs.apps.jdbc;
+package ca.jrvs.apps.jdbc.util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

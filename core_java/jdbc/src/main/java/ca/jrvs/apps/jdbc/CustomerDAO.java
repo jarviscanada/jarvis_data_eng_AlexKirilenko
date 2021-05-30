@@ -1,5 +1,6 @@
 package ca.jrvs.apps.jdbc;
 
+import ca.jrvs.apps.jdbc.util.DataAccessObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CustomerDAO extends DataAccessObject<Customer> {
+
   private static final String INSERT = "INSERT INTO customer (first_name, last_name, email, phone, address, city, state, zipcode) "
           + "VALUES (?,?,?,?,?,?,?,?);";
   private static final String GET_ONE = "SELECT customer_id, first_name, last_name, email, phone, address, city, state, zipcode "

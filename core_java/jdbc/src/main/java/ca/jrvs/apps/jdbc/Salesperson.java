@@ -2,7 +2,7 @@ package ca.jrvs.apps.jdbc;
 
 import ca.jrvs.apps.jdbc.util.DataTransferObject;
 
-public class Customer implements DataTransferObject {
+public class Salesperson implements DataTransferObject {
 
   private long id;
   private String firstName;
@@ -89,7 +89,7 @@ public class Customer implements DataTransferObject {
 
   @Override
   public String toString() {
-    return "Customer{" +
+    return "Salesperson{" +
         "id=" + id +
         ", firstName='" + firstName + '\'' +
         ", lastName='" + lastName + '\'' +
