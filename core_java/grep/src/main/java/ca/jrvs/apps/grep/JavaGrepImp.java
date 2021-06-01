@@ -37,7 +37,10 @@ public class JavaGrepImp implements JavaGrep {
     try {
       javaGrep.process();
     } catch (Exception ex) {
-      javaGrep.logger.error(ex.getMessage(), ex);
+      javaGrep.logger.error(
+          String.format("Failure processing files with given arguments: %s %s %s"
+          , javaGrep.getRegex(), javaGrep.getRootPath(), javaGrep.getOutFile())
+          , ex);
     }
   }
 
@@ -57,20 +60,15 @@ public class JavaGrepImp implements JavaGrep {
   @Override
   public List<File> listFiles(String rootDir) throws IOException {
     List<File> files = new LinkedList<>();
-    // stack of remaining files and directories for recursive traversal
     Deque<File> remainingFiles = new LinkedList<>();
-    // add rootDir to the stack. Does not check if it is legitimate path
     remainingFiles.addFirst(new File(rootDir));
     do {
-      // pop stack
       File currentFile = remainingFiles.removeFirst();
-      // if currentFile is a file, add it to the return list
       if (currentFile.isFile()) {
         files.add(currentFile);
       } else if (currentFile.isDirectory()) {
-        // if currentFile is a directory, add its children to the remaining list
         remainingFiles.addAll(Arrays.asList(currentFile.listFiles()));
-      } else { // if neither a file nor directory, throw exception
+      } else {
         throw new IOException(String.format("File %s cannot be located", currentFile.getPath()));
       }
     } while (!remainingFiles.isEmpty());
@@ -81,12 +79,11 @@ public class JavaGrepImp implements JavaGrep {
   public List<String> readLines(File inputFile) throws IllegalArgumentException {
     List<String> lines = new LinkedList<>();
     try (BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile))) {
-      // BufferedReader to be able to read whole lines
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         lines.add(line);
       }
-    } catch (IOException e) { // catches exceptions of Readers and readLine method
+    } catch (IOException e) {
       throw new IllegalArgumentException(
           String.format("File %s cannot be read", inputFile.getPath()), e);
     }

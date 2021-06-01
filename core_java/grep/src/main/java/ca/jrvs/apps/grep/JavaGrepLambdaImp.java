@@ -33,10 +33,12 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
     javaGrepLambdaImp.setOutFile(args[2]);
 
     try {
-//      javaGrepLambdaImp.process();
       javaGrepLambdaImp.processStream();
     } catch (Exception e) {
-      e.printStackTrace();
+      javaGrepLambdaImp.logger.error(
+          String.format("Failure processing files with given arguments: %s %s %s"
+              , javaGrepLambdaImp.getRegex(), javaGrepLambdaImp.getRootPath(), javaGrepLambdaImp.getOutFile())
+          , e);
     }
   }
 
@@ -52,8 +54,6 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
         .flatMap(Collection::stream)
         .filter(this::containsPattern)
         .collect(Collectors.toList());
-
-    // writing is done in batch not to invoke the method in the stream for each line
     writeToFile(processedLines);
   }
 
@@ -66,14 +66,10 @@ public class JavaGrepLambdaImp extends JavaGrepImp{
     // FileInputStream has to be opened in the same context (for concise implementation)
     List<InputStream> inputStreams = new LinkedList<>();
     try {
-      // list of files
       List<File> files = listFiles(getRootPath());
-      // creatisrc/main/java/ca/jrvs/apps/grep/JavaGrepLambdaImp.java
-ng an input stream from each file
       for (File file : files) {
         inputStreams.add(new FileInputStream(file));
       }
-      // processing inputStreams (of each file)
       List<String> processedLines = inputStreams
           .stream()
           .map(InputStreamReader::new)
@@ -81,32 +77,14 @@ ng an input stream from each file
           .flatMap(BufferedReader::lines)
           .filter(this::containsPattern)
           .collect(Collectors.toList());
-      // writing is done in batch not to invoke the method in the stream for each line
       writeToFile(processedLines);
     } catch (IOException e) {
       throw new IOException("Couldn't process lines", e);
     } finally {
-      // closing input streams
       for (InputStream inputStream : inputStreams) {
         inputStream.close();
       }
     }
-
-//    try {
-//      List<String> processedLines =
-//        listFiles(getRootPath())
-//            .stream()
-//            .map(FileInputStream::new)
-//            .map(InputStreamReader::new)
-//            .map(BufferedReader::new)
-//            .flatMap(BufferedReader::lines)
-//            .filter(this::containsPattern)
-//            .collect(Collectors.toList());
-//      writeToFile(processedLines);
-//    } catch (IOException e) {
-//      throw new IOException("Couldn't process lines", e);
-//    }
-
   }
 
   @Override
@@ -120,7 +98,7 @@ ng an input stream from each file
 
   @Override
   public List<String> readLines(File inputFile) throws IllegalArgumentException {
-    List<String> lines = new LinkedList<>();
+    List<String> lines = null;
     try {
       lines = Files
           .lines(inputFile.toPath())
@@ -131,7 +109,6 @@ ng an input stream from each file
     }
     return lines;
   }
-
 
   @Override
   public boolean containsPattern(String line) {
