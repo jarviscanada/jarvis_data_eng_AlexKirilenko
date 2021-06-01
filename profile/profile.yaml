@@ -1,0 +1,130 @@
+# Preferred name (Characters only)
+name: "Alex Kirilenko"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AlexKirilenko
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: "
+  I graduated with MSc in Electrical Engineering from the University of Saskatchewan.
+  During my graduate studies I focused on scientific computing, numerical methods and applied mathematics.
+  Recently, I have joined Jarvis as Software Developer / Data Engineer where I learn the agile software development lifecycle practices
+  and get hands-on experience with a broad stack of backend and data engineering technologies.
+  I strive to deliver software products of the highest quality that satisfy the
+  client's needs, and can be easily maintained by other developers.
+  Overall, I am excited to work on challenging projects and to contribute to their success as a part of a team.
+  "
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Linux/Bash
+    - Git
+  # At least 5 skills
+  competent:
+    - Spring Boot
+    - Hibernate
+    - REST API
+    - Docker
+    - Maven
+    - Python
+  # At least 5 skills
+  familiar:
+    - Networking (TCP/IP)
+    - Google Cloud Platform
+    - JavaScript
+    - HTML/CSS
+    - LaTeX
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "The project presents a collection of Bash and SQL scripts to automate the aggregation and persistence of hardware and real-time resource usage data from a cluster of Linux servers.
+    The application utilizes a PostgreSQL database server deployed through the docker."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Twitter App: In Progress"
+      - "JDBC App: Programmed a DAO layer between PostgreSQL database and Java code. It allows to perform CRUD operations on retail business entities by mapping the Java objects to the relational database tables through the JDBC interface."
+      - "Grep App: Developed a Java implementation of the Linux `grep` utility to recursively search for a pattern in files of a given directory. The app is implemented using Java Streams and Lambdas, allowing it to effectively process very large files using limited amount of memory. It is packaged using Maven, built into a docker image and distributed through Docker Hub."
+#  - name: "Springboot App"
+#    git_url: "/springboot"
+#    description: ""
+#  - name: "Python Data Analytics"
+#    git_url: "/python_data_anlytics"
+#    description: ""
+#  - name: "Hadoop"
+#    git_url: "/hadoop"
+#    description: ""
+#  - name: "Spark"
+#    git_url: "/spark"
+#    description: ""
+#  - name: "Cloud/DevOps"
+#    git_url: "/cloud_devops"
+#    description: ""
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "Machine Learning Models For Power Systems"
+    #URL is optional
+    git_url:
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Researched and implemented machine learning models to solve problems in the area of power systems.
+    Examples include time series forecasting implemented using LSTM neural networks
+    and estimation of reliability indices using regression forests."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2021-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Designed and implemented various software projects and server-side applications following Scrum
+    project development methodology. Gained hands-on development experience with Java, SQL and Linux,
+    and project lifecycle management and deployment using Git, Docker and Maven."
+  - title: "Graduate Research Assistant"
+    company: "University of Saskatchewan"
+    duration: "2017-2021"
+    description: "Collaborated with other research lab members on delegated parts of research proposals, grant applications and research project reports.
+    Assisted as a reviewer of conference papers. Helped to organize and host of the workshops and seminars.
+    Performed literature review and market research of various power system technologies and applications.
+    Developed and implemented numerical and statistical models for the simulation of the impact of renewable energy on power system operation."
+
+#List of edcuation
+education: 
+  - school_name: "University of Saskatchewan"
+    duration: "2017-2021"
+    degree: "Master of Science"
+    department: "Electrical and Computer Engineering"
+    # optional
+    awards_achievements:
+      - "GPA: 3.7/4.0"
+
+#Optional section
+others:
+    #category
+  - title: "Certificates"
+    #list of items
+    bullets:
+      - "Computer Science Coursera Course (Princeton University)."
+      - "Algorithms Coursera Course (Princeton University)."
+      - "Machine Learning Coursera Course (Stanford University)."
+  - title: "Academic Publications"
+    bullets:
+      - "Journal Paper: A.Kirilenko, M. Esmail, C.Y. Chung, Risk-Averse Stochastic Dynamic Line Rating Models,
+      IEEE Transactions on Power Systems, 2020."
+      - "Journal Paper: A.Kirilenko, Y. Gong, C.Y. Chung, A Framework for Power System Operational Planning under
+      Uncertainty Using Coherent Risk Measures, IEEE Transactions on Power Systems, 2021."
