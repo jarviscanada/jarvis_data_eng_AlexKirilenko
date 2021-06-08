@@ -78,7 +78,6 @@ public class TwitterDAOIntTest {
 
     assertEquals(id, deletedTweet.getId());
     assertTrue(deletedTweet.getText().contains(String.valueOf(currentTime)));
-
   }
 
 

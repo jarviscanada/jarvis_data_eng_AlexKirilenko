@@ -7,7 +7,6 @@ import java.util.Arrays;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Coordinates {
-
   private double[] coordinates;
   private String type;
 
