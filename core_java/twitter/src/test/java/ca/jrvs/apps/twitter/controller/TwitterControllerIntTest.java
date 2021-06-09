@@ -25,6 +25,7 @@ public class TwitterControllerIntTest {
     String ACCESS_TOKEN = System.getenv("accessToken");
     String TOKEN_SECRET = System.getenv("tokenSecret");
 
+
     HttpHelper helper = new TwitterHttpHelper(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET);
 
     this.dao = new TwitterDAO(helper);
@@ -95,7 +96,7 @@ public class TwitterControllerIntTest {
     String[] arguments = new String[] {"delete", id1 + "," + id2};
 
 
-    List<Tweet> deletedTweets = controller.deleteTweet(arguments);
+    List<Tweet> deletedTweets = controller.deleteTweets(arguments);
     assertEquals(id1, deletedTweets.get(0).getId());
     assertEquals(id2, deletedTweets.get(1).getId());
     assertTrue(deletedTweets.get(0).getText().contains(String.valueOf(currentTime1)));

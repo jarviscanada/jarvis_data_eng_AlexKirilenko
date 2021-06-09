@@ -2,7 +2,7 @@ package ca.jrvs.apps.twitter.controller;
 
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
-import ca.jrvs.apps.twitter.util.TweetBuilder;
+import ca.jrvs.apps.twitter.util.TweetUtil;
 import java.util.List;
 
 public class TwitterController implements Controller {
@@ -37,7 +37,7 @@ public class TwitterController implements Controller {
     } catch (Exception e) {
       throw new IllegalArgumentException("Incorrect coordinates format, " + USAGE_POST);
     }
-    Tweet tweet = TweetBuilder.buildTweet(tweet_text, latitude, longitude);
+    Tweet tweet = TweetUtil.buildTweet(tweet_text, latitude, longitude);
     return service.postTweet(tweet);
   }
 
@@ -60,7 +60,7 @@ public class TwitterController implements Controller {
   }
 
   @Override
-  public List<Tweet> deleteTweet(String[] args) {
+  public List<Tweet> deleteTweets(String[] args) {
     if (args.length != 2) {
       throw new IllegalArgumentException("Incorrect arguments, " + USAGE_DELETE);
     }

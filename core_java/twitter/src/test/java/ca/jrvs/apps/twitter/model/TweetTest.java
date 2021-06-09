@@ -20,10 +20,10 @@ public class TweetTest {
     assertEquals(1097607853932564480L, tweet.getId());
     assertEquals("1097607853932564480", tweet.getId_str());
     assertEquals("test with loc223", tweet.getText());
-    assertEquals(0, tweet.getRetweet_count());
-    assertEquals(0, tweet.getFavorite_count());
-    assertEquals(false, tweet.isFavorited());
-    assertEquals(false, tweet.isRetweeted());
+    assertEquals(new Integer(0), tweet.getRetweet_count());
+    assertEquals(new Integer(0), tweet.getFavorite_count());
+    assertEquals(new Boolean(false), tweet.isFavorited());
+    assertEquals(new Boolean(false), tweet.isRetweeted());
     assertNotNull(tweet.getEntities());
     assertNotNull(tweet.getCoordinates());
   }

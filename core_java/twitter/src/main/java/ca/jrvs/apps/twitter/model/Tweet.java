@@ -13,10 +13,10 @@ public class Tweet {
   private String text;
   private Entities entities;
   private Coordinates coordinates;
-  private int retweet_count;
-  private int favorite_count;
-  private boolean favorited;
-  private boolean retweeted;
+  private Integer retweet_count;
+  private Integer favorite_count;
+  private Boolean favorited;
+  private Boolean retweeted;
 
   public String getCreated_at() {
     return created_at;
@@ -66,35 +66,35 @@ public class Tweet {
     this.coordinates = coordinates;
   }
 
-  public int getRetweet_count() {
+  public Integer getRetweet_count() {
     return retweet_count;
   }
 
-  public void setRetweet_count(int retweet_count) {
+  public void setRetweet_count(Integer retweet_count) {
     this.retweet_count = retweet_count;
   }
 
-  public int getFavorite_count() {
+  public Integer getFavorite_count() {
     return favorite_count;
   }
 
-  public void setFavorite_count(int favorite_count) {
+  public void setFavorite_count(Integer favorite_count) {
     this.favorite_count = favorite_count;
   }
 
-  public boolean isFavorited() {
+  public Boolean isFavorited() {
     return favorited;
   }
 
-  public void setFavorited(boolean favorited) {
+  public void setFavorited(Boolean favorited) {
     this.favorited = favorited;
   }
 
-  public boolean isRetweeted() {
+  public Boolean isRetweeted() {
     return retweeted;
   }
 
-  public void setRetweeted(boolean retweeted) {
+  public void setRetweeted(Boolean retweeted) {
     this.retweeted = retweeted;
   }
 

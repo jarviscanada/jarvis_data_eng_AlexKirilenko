@@ -86,19 +86,19 @@ public class TwitterControllerUnitTest {
   public void deleteTweet() {
     // testing that appropriate methods of service are called
     when(service.deleteTweets(any())).thenReturn(new LinkedList<>());
-    controller.deleteTweet(new String[] {"delete", "123"});
-    controller.deleteTweet(new String[] {"delete", "123,5435345,23424,3333"});
+    controller.deleteTweets(new String[] {"delete", "123"});
+    controller.deleteTweets(new String[] {"delete", "123,5435345,23424,3333"});
     verify(service, times(2)).deleteTweets(any());
 
     try {
-      controller.deleteTweet(new String[] {"delete"});
+      controller.deleteTweets(new String[] {"delete"});
       fail();
     } catch (IllegalArgumentException e){
       assertTrue(true);
     }
 
     try {
-      controller.deleteTweet(new String[] {"delete", ""});
+      controller.deleteTweets(new String[] {"delete", ""});
       fail();
     } catch (IllegalArgumentException e){
       assertTrue(true);
