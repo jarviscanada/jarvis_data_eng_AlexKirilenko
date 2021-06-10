@@ -7,11 +7,15 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterService implements Service {
 
   private CrdDao dao;
 
+  @Autowired
   public TwitterService(CrdDao dao) { this.dao = dao; }
 
   @Override
