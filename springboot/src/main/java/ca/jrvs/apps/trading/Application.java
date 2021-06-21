@@ -12,9 +12,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
-@SpringBootApplication(exclude = {JdbcTemplateAutoConfiguration.class,
-    DataSourceAutoConfiguration.class,
-    HibernateJpaAutoConfiguration.class})
+//@SpringBootApplication(exclude = {JdbcTemplateAutoConfiguration.class,
+//    DataSourceAutoConfiguration.class,
+//    HibernateJpaAutoConfiguration.class})
+@SpringBootApplication
 public class Application implements CommandLineRunner {
 
   private Logger logger = LoggerFactory.getLogger(Application.class);
@@ -22,8 +23,8 @@ public class Application implements CommandLineRunner {
 //  @Value("${app.init.dailyList}")
 //  private String[] initDailyList;
 
-  @Autowired
-  private QuoteService quoteService;
+//  @Autowired
+//  private QuoteService quoteService;
 
   public static void main(String[] args) throws Exception {
     SpringApplication app = new SpringApplication(Application.class);

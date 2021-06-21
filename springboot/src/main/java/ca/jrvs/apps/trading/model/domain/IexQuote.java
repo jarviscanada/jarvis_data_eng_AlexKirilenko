@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 
 /**
  * https://iexcloud.io/docs/api/#quote
@@ -32,7 +34,6 @@ public class IexQuote {
   public IexQuote() {
 
   }
-
   @JsonGetter("ticker")
   public String getTicker() {
     return ticker;
@@ -43,7 +44,7 @@ public class IexQuote {
     this.ticker = ticker;
   }
 
-  @JsonGetter("last_price")
+  @JsonGetter("lastPrice")
   public Double getLastPrice() {
     return lastPrice;
   }
@@ -53,7 +54,7 @@ public class IexQuote {
     this.lastPrice = lastPrice;
   }
 
-  @JsonGetter("bid_price")
+  @JsonGetter("bidPrice")
   public Double getBidPrice() {
     return bidPrice;
   }
@@ -63,7 +64,7 @@ public class IexQuote {
     this.bidPrice = bidPrice;
   }
 
-  @JsonGetter("bid_size")
+  @JsonGetter("bidSize")
   public Integer getBidSize() {
     return bidSize;
   }
@@ -73,7 +74,7 @@ public class IexQuote {
     this.bidSize = bidSize;
   }
 
-  @JsonGetter("ask_price")
+  @JsonGetter("askPrice")
   public Double getAskPrice() {
     return askPrice;
   }
@@ -83,7 +84,7 @@ public class IexQuote {
     this.askPrice = askPrice;
   }
 
-  @JsonGetter("ask_size")
+  @JsonGetter("askSize")
   public Integer getAskSize() {
     return askSize;
   }

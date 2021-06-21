@@ -10,7 +10,7 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MarketDataDaoTest {
+public class MarketDataDaoIntTest {
 
   private MarketDataDao dao;
 
