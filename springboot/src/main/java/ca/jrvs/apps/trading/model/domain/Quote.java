@@ -11,17 +11,17 @@ import javax.persistence.Table;
 public class Quote {
 
   @Id
-  @Column(name = "ticker")
+  @Column(name = "ticker", nullable = false)
   private String ticker;
-  @Column(name = "last_price")
+  @Column(name = "last_price", nullable = false)
   private Double lastPrice;
-  @Column(name = "bid_price")
+  @Column(name = "bid_price", nullable = false)
   private Double bidPrice;
-  @Column(name = "bid_size")
+  @Column(name = "bid_size", nullable = false)
   private Integer bidSize;
-  @Column(name = "ask_price")
+  @Column(name = "ask_price", nullable = false)
   private Double askPrice;
-  @Column(name = "ask_size")
+  @Column(name = "ask_size", nullable = false)
   private Integer askSize;
 
   public String getTicker() {

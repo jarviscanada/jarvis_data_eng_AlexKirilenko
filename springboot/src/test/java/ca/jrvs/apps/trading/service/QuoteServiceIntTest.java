@@ -8,6 +8,7 @@ import ca.jrvs.apps.trading.model.domain.IexQuote;
 import ca.jrvs.apps.trading.model.domain.Quote;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +36,12 @@ public class QuoteServiceIntTest {
   public void setup() {
     quoteDao.deleteAll();
   }
+
+  @After
+  public void cleanup() {
+    quoteDao.deleteAll();
+  }
+
 
   @Test
   public void updateMarketData() {

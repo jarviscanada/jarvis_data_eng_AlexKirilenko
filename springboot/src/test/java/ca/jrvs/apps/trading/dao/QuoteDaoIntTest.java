@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import ca.jrvs.apps.trading.model.domain.Quote;
 import java.util.Arrays;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,16 +31,15 @@ public class QuoteDaoIntTest {
   private QuoteDao quoteDao;
 
   @Before
-  public void insertData() {
-    Quote q1 = new Quote();
-    q1.setTicker("TSLA");
-    q1.setLastPrice(201.5);
-    q1.setAskPrice(202.1);
-    q1.setAskSize(50);
-    q1.setBidPrice(202.7);
-    q1.setBidSize(150);
-    quoteDao.save(q1);
+  public void setup() {
+    quoteDao.deleteAll();
   }
+
+  @After
+  public void cleanup() {
+    quoteDao.deleteAll();
+  }
+
 
 
   @Test
@@ -53,6 +53,15 @@ public class QuoteDaoIntTest {
     q1.setBidSize(321);
     quoteDao.save(q1);
     assertEquals(q1.getLastPrice(), quoteDao.findById("AAPL").get().getLastPrice());
+
+    Quote q2 = new Quote();
+    q2.setTicker("TSLA");
+    q2.setLastPrice(201.5);
+    q2.setAskPrice(202.1);
+    q2.setAskSize(50);
+    q2.setBidPrice(202.7);
+    q2.setBidSize(150);
+    quoteDao.save(q2);
 
     assertEquals(2, quoteDao.findAllById(Arrays.asList("AAPL", "TSLA")).size());
   }
