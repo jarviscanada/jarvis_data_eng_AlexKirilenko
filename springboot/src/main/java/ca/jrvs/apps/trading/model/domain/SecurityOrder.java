@@ -20,7 +20,7 @@ public class SecurityOrder {
   private Integer id;
 
   @Transient
-  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinColumn(name = "account_id")
   private Account account;
   @Column(name = "account_id")
@@ -30,7 +30,7 @@ public class SecurityOrder {
   private String status;
 
   @Transient
-  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinColumn(name = "quote_ticker")
   private Quote quote;
   @Column(name = "ticker")

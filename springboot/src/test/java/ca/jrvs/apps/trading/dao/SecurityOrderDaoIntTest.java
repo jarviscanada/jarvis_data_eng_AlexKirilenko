@@ -87,6 +87,8 @@ public class SecurityOrderDaoIntTest {
     assertEquals(order.getPrice(), orderRetrived.getPrice());
     assertEquals(order.getSize(), orderRetrived.getSize());
 
+    assertEquals(order.getPrice(), securityOrderDao.findAllByAccountId(accountSaved.getId()).get(0).getPrice());
+
 
   }
 

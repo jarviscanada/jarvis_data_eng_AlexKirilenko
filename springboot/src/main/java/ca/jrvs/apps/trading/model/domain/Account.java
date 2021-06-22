@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -21,7 +22,7 @@ public class Account {
   private Integer id;
 
   @Transient
-  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinColumn(name = "trader_id")
   private Trader trader;
   @Column(name = "trader_id")

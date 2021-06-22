@@ -48,25 +48,18 @@ public class AccountDaoIntTest {
     trader.setEmail("bob@gmail.com");
     Trader traderSaved = traderDao.save(trader);
 
-    // two accounts for the same trader
     Account account1 = new Account();
     account1.setTraderId(traderSaved.getId());
     account1.setAmount(123.1);
 
-    Account account2 = new Account();
-    account2.setTraderId(traderSaved.getId());
-    account2.setAmount(321.1);
 
     Account account1Saved = accountDao.save(account1);
-    Account account2Saved = accountDao.save(account2);
 
     Account account1Retrieved = accountDao.findById(account1Saved.getId()).get();
-    Account account2Retrieved = accountDao.findById(account2Saved.getId()).get();
 
     assertEquals(account1.getAmount(), account1Retrieved.getAmount());
-    assertEquals(account2.getAmount(), account2Retrieved.getAmount());
     assertEquals(account1.getTraderId(), account1Retrieved.getTraderId());
-    assertEquals(account2.getTraderId(), account2Retrieved.getTraderId());
 
+    assertEquals(account1.getAmount(), accountDao.findAccountByTraderId(trader.getId()).getAmount());
   }
 }
