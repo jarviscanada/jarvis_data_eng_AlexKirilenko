@@ -10,12 +10,16 @@ import ca.jrvs.apps.trading.model.domain.SecurityOrder;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import ca.jrvs.apps.trading.model.domain.TraderAccountView;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TraderAccountService {
+
+  private static final Logger logger = LoggerFactory.getLogger(TraderAccountService.class);
 
   private TraderDao traderDao;
   private AccountDao accountDao;
