@@ -1,5 +1,6 @@
 \c template1;
-DROP DATABASE IF EXISTS jrvstrading;
-CREATE DATABASE jrvstrading;
-GRANT ALL PRIVILEGES ON DATABASE jrvstrading TO postgres;
-\c jrvstrading;
+\set dbname `echo $POSTGRES_DB`
+DROP DATABASE IF EXISTS :dbname;
+CREATE DATABASE :dbname;
+GRANT ALL PRIVILEGES ON DATABASE :dbname TO postgres;
+\c :dbname;
