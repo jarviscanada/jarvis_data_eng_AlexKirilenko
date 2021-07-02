@@ -28,7 +28,6 @@ public class PrintLetterWithNumber {
         throw new RuntimeException("Input string must containt only lower and upper case characters");
       }
     }
-    System.arraycopy();
 
     return sb.toString();
   }
