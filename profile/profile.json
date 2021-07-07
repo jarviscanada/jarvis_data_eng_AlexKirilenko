@@ -32,6 +32,16 @@
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
+    },
+    {
+      "description": "Developed a proof-of-concept application that provides a REST API to trade financial securities and manage customers' portfolios. The project is written in Java and relies on Spring framework for IoC and Spring MVC for the handling of HTTP requests. Additionally, Hibernate framework was used for ORM between the Java code and the postgres database. The application is distributed as a docker image and can be run as a microservice.",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "Performed data analysis of a retail company's transactions using Python and Pandas library. The project identifies different groups of customers based on their transactions statistics and provides an informational basis for targeted actions to increase the company's efficiency and profitability. The project is distributed as a Jupyter notebook that acts as an end client of the company's OLAP data pipeline. ",
+      "git_url": "/python_data_analytics",
+      "name": "Python Data Analytics"
     }
   ],
   "name": "Alex Kirilenko",
