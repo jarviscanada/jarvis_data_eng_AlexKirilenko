@@ -23,6 +23,10 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AlexKirile
   - JDBC App: Programmed a DAO layer between PostgreSQL database and Java code. It allows performing CRUD operations on retail business entities by mapping the Java objects to the relational database tables through the JDBC interface.
   - Grep App: Developed a Java implementation of the Linux `grep` utility to recursively search for a pattern in files of a given directory. The app is implemented using Java Streams and Lambdas, allowing it to effectively process very large files using limited amount of memory. It is packaged using Maven, built into a docker image and distributed through Docker Hub.
 
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AlexKirilenko/tree/master/springboot)]: Developed a proof-of-concept application that provides a REST API to trade financial securities and manage customers' portfolios. The project is written in Java and relies on Spring framework for IoC and Spring MVC for the handling of HTTP requests. Additionally, Hibernate framework was used for ORM between the Java code and the postgres database. The application is distributed as a docker image and can be run as a microservice.
+
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AlexKirilenko/tree/master/python_data_analytics)]: Performed data analysis of a retail company's transactions using Python and Pandas library. The project identifies different groups of customers based on their transactions statistics and provides an informational basis for targeted actions to increase the company's efficiency and profitability. The project is distributed as a Jupyter notebook that acts as an end client of the company's OLAP data pipeline. 
+
 
 ## Highlighted Projects
 **Machine Learning Models For Power Systems**: Researched and implemented machine learning models to solve problems in the area of power systems. Examples include time series forecasting implemented using LSTM neural networks and estimation of reliability indices using regression forests.
