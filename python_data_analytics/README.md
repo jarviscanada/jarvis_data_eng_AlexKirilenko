@@ -1,6 +1,6 @@
 # Introduction
 This project analyzes transactions data from a gift shop company from the perspective of aggregate sales statistics and customers' behavior. The project uses Python as the main language and relies on the Pandas, matplotlib and NumPy libraries. It is implemented in the form of a Jupyter notebook and relies on the data provided by an external source (e.g. postgres database or csv file).
-strategies
+
 The results of the project can be used to devise sale strategies and promotions aimed at each category of customers. 
 
 
