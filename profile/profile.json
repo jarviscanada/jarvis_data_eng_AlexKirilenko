@@ -42,6 +42,11 @@
       "description": "Performed data analysis of a retail company's transactions using Python and Pandas library. The project identifies different groups of customers based on their transactions statistics and provides an informational basis for targeted actions to increase the company's efficiency and profitability. The project is distributed as a Jupyter notebook that acts as an end client of the company's OLAP data pipeline. ",
       "git_url": "/python_data_analytics",
       "name": "Python Data Analytics"
+    },
+    {
+      "description": "Deployed a Hadoop cluster using Google Cloud Platform and explored the main components of Hadoop ecosystem, including HDFS, YARN and Hive. Extracted and transformed the 2016 world development index data using Hive and Zeppelin notebook. Performed an analysis of the data using Hive query language and compared the performance of different optimizations, including the columnar data format (Parquet) and hive partitions. The project is distributed as a Zeppelin notebook.",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
     }
   ],
   "name": "Alex Kirilenko",

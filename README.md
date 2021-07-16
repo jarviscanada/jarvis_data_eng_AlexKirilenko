@@ -27,6 +27,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AlexKirile
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AlexKirilenko/tree/master/python_data_analytics)]: Performed data analysis of a retail company's transactions using Python and Pandas library. The project identifies different groups of customers based on their transactions statistics and provides an informational basis for targeted actions to increase the company's efficiency and profitability. The project is distributed as a Jupyter notebook that acts as an end client of the company's OLAP data pipeline. 
 
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AlexKirilenko/tree/master/hadoop)]: Deployed a Hadoop cluster using Google Cloud Platform and explored the main components of Hadoop ecosystem, including HDFS, YARN and Hive. Extracted and transformed the 2016 world development index data using Hive and Zeppelin notebook. Performed an analysis of the data using Hive query language and compared the performance of different optimizations, including the columnar data format (Parquet) and hive partitions. The project is distributed as a Zeppelin notebook.
+
 
 ## Highlighted Projects
 **Machine Learning Models For Power Systems**: Researched and implemented machine learning models to solve problems in the area of power systems. Examples include time series forecasting implemented using LSTM neural networks and estimation of reliability indices using regression forests.
