@@ -71,9 +71,13 @@ jarvis_projects:
     and provides an informational basis for targeted actions to increase the company's efficiency and profitability.
     The project is distributed as a Jupyter notebook that acts as an end client of the company's OLAP data pipeline.
     "
-#  - name: "Hadoop"
-#    git_url: "/hadoop"
-#    description: ""
+  - name: "Hadoop"
+    git_url: "/hadoop"
+    description: "Deployed a Hadoop cluster using Google Cloud Platform and explored the main components of Hadoop ecosystem, including HDFS, YARN and Hive.
+    Extracted and transformed the 2016 world development index data using Hive and Zeppelin notebook.
+    Performed an analysis of the data using Hive query language and compared the performance of different optimizations,
+    including the columnar data format (Parquet) and hive partitions.
+    The project is distributed as a Zeppelin notebook."
 #  - name: "Spark"
 #    git_url: "/spark"
 #    description: ""
